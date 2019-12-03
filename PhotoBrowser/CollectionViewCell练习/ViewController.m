@@ -12,7 +12,7 @@
 #define fDeviceHeight ([UIScreen mainScreen].bounds.size.height)
 
 @interface ViewController ()
-
+@property NSTimer *t;
 @end
 
 @implementation ViewController
@@ -47,15 +47,23 @@
     [self.returnHome setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.returnHome setTitle:@"返回" forState:UIControlStateNormal];
     [self.returnHome addTarget:self action:@selector(goHome) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    self.autoPlay = [[UIButton alloc] initWithFrame:CGRectMake(10, 90, 100, 30)];
+    self.autoPlay.backgroundColor = [UIColor whiteColor];
+    [self.autoPlay setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.autoPlay setTitle:@"自动播放" forState:UIControlStateNormal];
+    [self.autoPlay addTarget:self action:@selector(playPhoto) forControlEvents:UIControlEventTouchUpInside];
+    
     
     self.sview.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.sview];
     
     [self.view addSubview:self.returnHome];
-
+    [self.view addSubview:self.autoPlay];
     self.sview.hidden = YES;
     self.returnHome.hidden = YES;
-
+    self.autoPlay.hidden = YES;
 
 }
 
@@ -131,6 +139,7 @@
     self.sview.contentOffset = CGPointMake((indexPath.item)*(self.view.frame.size.width) ,0);
     self.mycollectionView.hidden = YES;
     self.returnHome.hidden = NO;
+    self.autoPlay.hidden = NO;
     self.sview.hidden = NO;
 }
 
@@ -141,10 +150,53 @@
 
 -(void)goHome
 {
+    [self deleteTimer];
     self.sview.hidden = YES;
     self.returnHome.hidden = YES;
     self.mycollectionView.hidden = NO;
+    self.autoPlay.hidden = YES;
+}
+-(void) playPhoto
+{
+    self.t = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updatePhoto) userInfo:nil repeats:YES];
 }
 
+-(void)updatePhoto
+{
+    [UIView animateWithDuration:0.5 animations:^{
+    CGPoint pos =
+    self.sview.contentOffset;
+    int ww = 414;
+    int n = pos.x/ww;
+    int nxt = 0;
+    if(n == self.cellArray.count-1)
+    {
+        nxt = 0;
+    }
+    else {
+        nxt = n+1;
+    }
+    CGPoint nxtpos = CGPointMake(nxt*ww, 0);
+    self.sview.contentOffset = nxtpos;
+    }
+     ];
+}
+-(void)deleteTimer
+{
+    [self.t invalidate];
+    self.t = nil;
+}
 
 @end    
+
+
+
+
+
+
+
+
+
+
+
+

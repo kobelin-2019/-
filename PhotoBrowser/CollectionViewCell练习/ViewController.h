@@ -18,6 +18,7 @@
 
 @property UIButton *returnHome;
 
+@property UIButton *autoPlay;
 
 @end
 
