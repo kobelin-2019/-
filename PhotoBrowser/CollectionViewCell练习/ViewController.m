@@ -100,7 +100,7 @@
 
 
 #pragma mark - UICollectionView delegate dataSource
-#pragma mark 定义展示的UICollectionViewCell的个数
+#pragma mark 定义展示的UICollectionViewCell的个数/Users/kobelin/Desktop/PhotoBrowser/CollectionViewCell练习/ViewController.h
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [_cellArray count];
@@ -166,7 +166,7 @@
     [UIView animateWithDuration:0.5 animations:^{
     CGPoint pos =
     self.sview.contentOffset;
-    int ww = 414;
+    int ww = [UIScreen mainScreen].bounds.size.width;
     int n = pos.x/ww;
     int nxt = 0;
     if(n == self.cellArray.count-1)

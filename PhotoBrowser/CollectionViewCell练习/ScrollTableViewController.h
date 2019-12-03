@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GroupShadowTableView.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface ScrollTableViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
-@property UITableView *tableView;
-
+@interface ScrollTableViewController : UIViewController
 @end
-
-NS_ASSUME_NONNULL_END

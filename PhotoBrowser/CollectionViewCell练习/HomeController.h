@@ -10,15 +10,18 @@
 #import "ViewController.h"
 #import "PhotoStreamController.h"
 #import "ScrollTableViewController.h"
+#import "CardViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeController : UIViewController
 @property UIButton *btn1;
 @property UIButton *btn2;
 @property UIButton *btn3;
+@property UIButton *btn4;
 @property PhotoStreamController *VC1;
 @property ViewController *VC2;
 @property ScrollTableViewController *VC3;
+@property CardViewController *VC4;
 @end
 
 NS_ASSUME_NONNULL_END

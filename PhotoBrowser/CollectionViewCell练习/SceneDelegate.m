@@ -13,7 +13,6 @@
     
     
     
-    ViewController *vc = [[ViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:home];
     
     

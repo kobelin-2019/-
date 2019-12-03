@@ -49,6 +49,7 @@ int max(int a,int b)
         h1+=rand/1.5;
         
         
+        j = arc4random() % tot;
          rand = 30+ arc4random() % 100;
         imgView = [[UIImageView alloc] initWithFrame:CGRectMake(x2,h2 ,ww, rand/1.5)];
         img = [UIImage imageNamed:_cellArray[j]];
@@ -57,6 +58,7 @@ int max(int a,int b)
         h2+=rand/1.5;
 
         
+        j = arc4random() % tot;
         rand = 30+ arc4random() % 100;
         imgView = [[UIImageView alloc] initWithFrame:CGRectMake(x3,h3 ,ww, rand/1.5)];
         img = [UIImage imageNamed:_cellArray[j]];
