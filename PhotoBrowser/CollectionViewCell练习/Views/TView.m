@@ -46,7 +46,7 @@
  */
 - (NSInteger)groupShadowTableView:(GroupShadowTableView *)tableView numberOfRowsInSection:(NSInteger)section{
      
-    return 1;
+    return 3;
 }
  
 /**
